@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Healthase : MonoBehaviour
 {
+    public Animator animator;
     public float startlife = 3;
     private float currenthealth;
 
@@ -11,6 +12,7 @@ public class Healthase : MonoBehaviour
     }
     public void Damage(int damage)
     {
+        animator.SetTrigger("hurt");
         Debug.Log("Damage");
 
         currenthealth -= damage;
