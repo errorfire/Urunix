@@ -55,6 +55,10 @@ public class Player : MonoBehaviour
         {
             rigidbody2D.linearVelocity -= new Vector2(-.5f, 0);
         }
+        if (Input.GetKey(KeyCode.E))
+        {
+            animator.SetTrigger("attack");
+        }
     }
     private void jump()
     {
@@ -63,4 +67,5 @@ public class Player : MonoBehaviour
             rigidbody2D.linearVelocity = Vector2.up * jumpforce;
         }
     }
+
 }

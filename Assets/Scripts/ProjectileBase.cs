@@ -1,0 +1,26 @@
+using UnityEngine;
+
+public class ProjectileBase : MonoBehaviour
+{
+    public Vector3 direction;
+    public float time = 2f;
+    public float side = 1;
+    private void Awake()
+    {
+        Destroy(gameObject, time);
+    }
+    private void Update()
+    {
+        transform.Translate(direction * Time.deltaTime * side);
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        var enemy = collision.transform.GetComponent<EnemyBase>();
+        if (enemy != null)
+        {
+            Debug.Log("Inimigo morto");
+            enemy.kill();
+            Destroy(gameObject);
+        }
+    }
+}

@@ -11,4 +11,8 @@ public class EnemyBase : MonoBehaviour
             health.Damage(1);
         }
     }
+    public void kill()
+    {
+        Destroy(gameObject);
+    }
 }
