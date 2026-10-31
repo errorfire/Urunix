@@ -2,13 +2,11 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    [Header("BaseValue")]
+    public SOPlayer soPlayer;
     public Animator animator;
     public Rigidbody2D rigidbody2D;
     public Vector2 vector2;
-    public float speed;
-    public float walkspeed;
-    public float runspeed;
-    public float jumpforce = 2;
     private void Update()
     {
         movement();
@@ -19,25 +17,25 @@ public class Player : MonoBehaviour
         if (Input.GetKey(KeyCode.LeftShift))
         {
 
-            speed = runspeed;
+            soPlayer.speed = soPlayer.runspeed;
             animator.speed = 2;
         }
         else
         {
-            speed = walkspeed;
+            soPlayer.speed = soPlayer.walkspeed;
             animator.speed = 1;
         }
 
         if (Input.GetKey(KeyCode.A))
         {
             rigidbody2D.transform.localScale = new Vector3(-1, 1, 1);
-            rigidbody2D.linearVelocity = new Vector2(-speed, rigidbody2D.linearVelocity.y);
+            rigidbody2D.linearVelocity = new Vector2(-soPlayer.speed, rigidbody2D.linearVelocity.y);
             animator.SetBool("isRun", true);
         }
         else if (Input.GetKey(KeyCode.D))
         {
             rigidbody2D.transform.localScale = new Vector3(1, 1, 1);
-            rigidbody2D.linearVelocity = new Vector2(+speed, rigidbody2D.linearVelocity.y);
+            rigidbody2D.linearVelocity = new Vector2(+soPlayer.speed, rigidbody2D.linearVelocity.y);
             animator.SetBool("isRun", true);
         }
         else
@@ -64,7 +62,7 @@ public class Player : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            rigidbody2D.linearVelocity = Vector2.up * jumpforce;
+            rigidbody2D.linearVelocity = Vector2.up * soPlayer.jumpforce;
         }
     }
 

@@ -5,7 +5,7 @@ public class ItemManager : MonoBehaviour
 {
     public TextMeshProUGUI TextCoins;
     public static ItemManager instance;
-    public int coins;
+    public SOint coins;
 
     private void Awake()
     {
@@ -16,16 +16,16 @@ public class ItemManager : MonoBehaviour
     }
     private void Start()
     {
+        coins.Value = 0;
         Reset();
     }
     private void Reset()
     {
-        coins = 0;
+        coins.Value = 0;
     }
 
-    public void AddCoins()
+    public void AddCoins(int amount = 1)
     {
-        coins++;
-        TextCoins.text = coins.ToString();
+        coins.Value += amount;
     }
 }

@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Coin : MonoBehaviour
 {
+    public int amount;
     public string CompareTag = "Player";
     private void OnTriggerEnter2D(Collider2D colision)
     {
@@ -16,6 +17,6 @@ public class Coin : MonoBehaviour
     }
     protected virtual void OnCollect()
     {
-        ItemManager.instance.AddCoins();
+        ItemManager.instance.AddCoins(amount);
     }
 }

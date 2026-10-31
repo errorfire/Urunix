@@ -307,13 +307,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 907a2442aa3c107479403932bf09ec28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player
+  soPlayer: {fileID: 11400000, guid: 21d71fd99244dd740afadd4329ad1834, type: 2}
   animator: {fileID: 243616928}
   rigidbody2D: {fileID: 243616932}
   vector2: {x: 0, y: 0}
-  speed: 10
-  walkspeed: 10
-  runspeed: 20
-  jumpforce: 12
 --- !u!61 &243616931
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -912,6 +909,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5393788919137589358, guid: 5f0d7ba42cc3b5743a1f47ef07dcca2d, type: 3}
+      propertyPath: m_Color.b
+      value: 0.3103002
+      objectReference: {fileID: 0}
+    - target: {fileID: 5393788919137589358, guid: 5f0d7ba42cc3b5743a1f47ef07dcca2d, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5393788919137589358, guid: 5f0d7ba42cc3b5743a1f47ef07dcca2d, type: 3}
+      propertyPath: m_Color.r
+      value: 0.24056602
+      objectReference: {fileID: 0}
+    - target: {fileID: 8229190161922434010, guid: 5f0d7ba42cc3b5743a1f47ef07dcca2d, type: 3}
+      propertyPath: amount
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1040,6 +1053,7 @@ GameObject:
   - component: {fileID: 607458482}
   - component: {fileID: 607458484}
   - component: {fileID: 607458483}
+  - component: {fileID: 607458485}
   m_Layer: 5
   m_Name: Total Coins
   m_TagString: Untagged
@@ -1166,6 +1180,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 607458481}
   m_CullTransparentMesh: 1
+--- !u!114 &607458485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 607458481}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb8e2129c34b866459f2ea9b02e3d947, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SOUIintUpdate
+  soInt: {fileID: 11400000, guid: 12e0354edce2e3b418179b85bfda177b, type: 2}
+  uiTextValue: {fileID: 607458483}
 --- !u!1001 &733366093
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1460,6 +1488,10 @@ PrefabInstance:
     - target: {fileID: 2117729011172734218, guid: 5f0d7ba42cc3b5743a1f47ef07dcca2d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8229190161922434010, guid: 5f0d7ba42cc3b5743a1f47ef07dcca2d, type: 3}
+      propertyPath: amount
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1789,7 +1821,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemManager
   TextCoins: {fileID: 607458483}
-  coins: 0
+  coins: {fileID: 11400000, guid: 12e0354edce2e3b418179b85bfda177b, type: 2}
 --- !u!4 &1273071085
 Transform:
   m_ObjectHideFlags: 0
@@ -2989,6 +3021,22 @@ PrefabInstance:
     - target: {fileID: 2117729011172734218, guid: 5f0d7ba42cc3b5743a1f47ef07dcca2d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5393788919137589358, guid: 5f0d7ba42cc3b5743a1f47ef07dcca2d, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5393788919137589358, guid: 5f0d7ba42cc3b5743a1f47ef07dcca2d, type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5393788919137589358, guid: 5f0d7ba42cc3b5743a1f47ef07dcca2d, type: 3}
+      propertyPath: m_Color.r
+      value: 0.26606238
+      objectReference: {fileID: 0}
+    - target: {fileID: 8229190161922434010, guid: 5f0d7ba42cc3b5743a1f47ef07dcca2d, type: 3}
+      propertyPath: amount
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
