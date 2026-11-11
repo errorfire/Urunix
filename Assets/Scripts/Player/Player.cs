@@ -1,3 +1,5 @@
+using System;
+using UnityEditor.Rendering.Universal.ShaderGUI;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -7,6 +9,10 @@ public class Player : MonoBehaviour
     public Animator animator;
     public Rigidbody2D rigidbody2D;
     public Vector2 vector2;
+    public float time;
+    public float time2;
+    public GameObject RunVFX;
+    public GameObject JumpVFX;
     private void Update()
     {
         movement();
@@ -19,12 +25,21 @@ public class Player : MonoBehaviour
 
             soPlayer.speed = soPlayer.runspeed;
             animator.speed = 2;
+            RunVFX.SetActive(true);
+            time = 1f;
         }
         else
         {
             soPlayer.speed = soPlayer.walkspeed;
             animator.speed = 1;
+            time -= Time.deltaTime;
+
+            if (time <= 0)
+            {
+                RunVFX.SetActive(false);
+            }
         }
+
 
         if (Input.GetKey(KeyCode.A))
         {
@@ -37,6 +52,7 @@ public class Player : MonoBehaviour
             rigidbody2D.transform.localScale = new Vector3(1, 1, 1);
             rigidbody2D.linearVelocity = new Vector2(+soPlayer.speed, rigidbody2D.linearVelocity.y);
             animator.SetBool("isRun", true);
+
         }
         else
         {
@@ -63,7 +79,16 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             rigidbody2D.linearVelocity = Vector2.up * soPlayer.jumpforce;
+            JumpVFX.SetActive(true);
+            time2 = 0.2f;
+        }
+        else if (time2 > 0)
+        {
+            time2 -= Time.deltaTime;
+            if (time2 <= 0)
+            {
+                JumpVFX.SetActive(false);
+            }
         }
     }
-
 }
