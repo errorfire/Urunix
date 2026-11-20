@@ -13,6 +13,7 @@ public class Player : MonoBehaviour
     public float time2;
     public GameObject RunVFX;
     public GameObject JumpVFX;
+    public AudioSource audioSource;
     private void Update()
     {
         movement();
@@ -78,6 +79,7 @@ public class Player : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            if (audioSource != null) audioSource.Play();
             rigidbody2D.linearVelocity = Vector2.up * soPlayer.jumpforce;
             JumpVFX.SetActive(true);
             time2 = 0.2f;

@@ -3,6 +3,7 @@ using UnityEngine;
 public class Coin : MonoBehaviour
 {
     public ParticleSystem particleSystem;
+    public AudioSource audioSource;
     public int amount;
     public string CompareTag = "Player";
     private void Awake()
@@ -22,6 +23,7 @@ public class Coin : MonoBehaviour
     }
     protected virtual void OnCollect()
     {
+        if (audioSource != null) audioSource.Play();
         if (particleSystem != null) particleSystem.Play();
         ItemManager.instance.AddCoins(amount);
     }
